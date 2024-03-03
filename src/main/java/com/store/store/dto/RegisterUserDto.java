@@ -1,5 +1,7 @@
 package com.store.store.dto;
 
+import java.util.Set;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,5 +12,5 @@ public class RegisterUserDto {
     private String password;
     private String username;
     private String name;
-
+    Set<String> roles;
 }

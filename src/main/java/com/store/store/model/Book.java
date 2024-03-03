@@ -4,6 +4,7 @@ import java.util.Date;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.format.annotation.NumberFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,6 +13,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,9 +36,10 @@ public class Book {
     String description;
 
     @NotBlank
+    @Size(max = 1024)
     String img;
 
-    @NotBlank
+    @NumberFormat
     Float price;
 
     @CreationTimestamp
@@ -46,5 +49,12 @@ public class Book {
     @UpdateTimestamp
     @Column(name = "updated_at")
     private Date updatedAt;
+
+    public Book(@NotBlank String name, String description, @NotBlank String img, Float price) {
+        this.name = name;
+        this.description = description;
+        this.img = img;
+        this.price = price;
+    }
 
 }

@@ -20,7 +20,8 @@ public class BookService {
     }
 
     public Book createBook(RegisterBookDto registerBookDto) {
-        Book bookData = new Book();
+        Book bookData = new Book(registerBookDto.getName(), registerBookDto.getDescription(), registerBookDto.getImg(),
+                registerBookDto.getPrice());
         return bookRepository.save(bookData);
     }
 

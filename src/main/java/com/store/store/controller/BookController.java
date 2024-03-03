@@ -28,8 +28,9 @@ public class BookController {
 
     // Add a book
     @PostMapping
-    @RolesAllowed("ROLE_ADMIN")
+    // @RolesAllowed("ROLE_ADMIN")
     public Book createBook(@RequestBody RegisterBookDto book) {
+        System.out.println("book" + book);
         return bookService.createBook(book);
     }
 
@@ -47,14 +48,14 @@ public class BookController {
 
     // Update book by ID
     @PutMapping("/{id}")
-    @RolesAllowed("ROLE_ADMIN")
+    // @RolesAllowed("ROLE_ADMIN")
     public Book updateBook(@PathVariable Long id, @RequestBody Book bookDetails) {
         return bookService.updateBook(id, bookDetails);
     }
 
     // Delete all books
     @DeleteMapping
-    @RolesAllowed("ROLE_ADMIN")
+    // @RolesAllowed("ROLE_ADMIN")
     public String deleteAllBooks() {
         bookService.deleteAllBooks();
         return "All books have been deleted successfully.";
@@ -62,7 +63,7 @@ public class BookController {
 
     // Delete book by ID
     @DeleteMapping("/{id}")
-    @RolesAllowed("ROLE_ADMIN")
+    // @RolesAllowed("ROLE_ADMIN")
     public void deleteBook(@PathVariable Long id) {
         bookService.deleteBook(id);
     }

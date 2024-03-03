@@ -10,7 +10,6 @@ import com.store.store.model.User;
 import com.store.store.service.UserService;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/users")
